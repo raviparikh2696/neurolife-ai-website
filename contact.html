@@ -46,7 +46,7 @@
           <h3>Ravi Parikh</h3>
           <p class="team-role">Co-Founder &amp; Developer</p>
           <p class="team-bio">Passionate about building AI-powered tools that make everyday life easier. Focused on mobile app development and user experience design.</p>
-          <a href="mailto:neurolifeai.app@gmail.com" class="team-contact-btn">
+          <a href="mailto:ravi.parikh12345@gmail.com" class="team-contact-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Send Email
           </a>
@@ -58,7 +58,7 @@
           <h3>Dhruv Desai</h3>
           <p class="team-role">Co-Founder &amp; Developer</p>
           <p class="team-bio">Dedicated to creating seamless, intuitive mobile experiences. Specializes in backend architecture and AI integration for productivity apps.</p>
-          <a href="mailto:neurolifeai.app@gmail.com" class="team-contact-btn">
+          <a href="mailto:dhruvdd6@gmail.com" class="team-contact-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Send Email
           </a>
@@ -80,7 +80,8 @@
               <div class="contact-method-icon">📧</div>
               <div>
                 <h4>Email</h4>
-                <a href="mailto:neurolifeai.app@gmail.com">neurolifeai.app@gmail.com</a>
+                <a href="mailto:ravi.parikh12345@gmail.com">ravi.parikh12345@gmail.com</a> (Ravi)<br>
+                <a href="mailto:dhruvdd6@gmail.com">dhruvdd6@gmail.com</a> (Dhruv)
               </div>
             </div>
             <div class="contact-method">
@@ -108,7 +109,7 @@
         </div>
 
         <div class="contact-form-wrapper">
-          <form class="contact-form" onsubmit="handleSubmit(event)">
+          <form class="contact-form" action="https://formspree.io/f/xjvvdqbj" method="POST" onsubmit="handleSubmit(event)">
             <div class="form-group">
               <label for="name">Your Name</label>
               <input type="text" id="name" name="name" placeholder="Ravi Parikh" required />
@@ -145,9 +146,12 @@
             <button type="submit" class="btn btn-primary form-submit">
               Send Message
             </button>
-            <div id="form-success" class="form-success" style="display:none;">
-              ✅ Thank you! Your message has been sent. We'll get back to you within 1–2 business days.
+            <div id="form-status" class="form-success" style="display:none;">
+              ✅ Thank you! Your message has been sent to both Ravi and Dhruv. We'll get back to you within 1–2 business days.
             </div>
+            <input type="hidden" name="_next" value="https://neurolife-ai-website.vercel.app/contact.html?success=true" />
+            <input type="hidden" name="_subject" value="NeuroLife AI Contact Form Submission" />
+            <input type="hidden" name="_captcha" value="false" />
           </form>
         </div>
       </div>
@@ -165,7 +169,7 @@
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p>You can delete your account from the Settings screen in the app. All your data will be permanently removed within 30 days. Alternatively, email us at <a href="mailto:neurolifeai.app@gmail.com">neurolifeai.app@gmail.com</a> with "Data Deletion Request" in the subject line.</p>
+            <p>You can delete your account from the Settings screen in the app. All your data will be permanently removed within 30 days. Alternatively, email us at <a href="mailto:ravi.parikh12345@gmail.com">ravi.parikh12345@gmail.com</a> or <a href="mailto:dhruvdd6@gmail.com">dhruvdd6@gmail.com</a> with "Data Deletion Request" in the subject line.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -250,13 +254,9 @@
       item.classList.toggle('open');
     }
     function handleSubmit(e) {
-      e.preventDefault();
-      // In production, this would POST to a backend endpoint
-      document.getElementById('form-success').style.display = 'block';
-      e.target.reset();
-      setTimeout(() => {
-        document.getElementById('form-success').style.display = 'none';
-      }, 6000);
+      // Allow form submission to Formspree
+      // Formspree will send the email to ravi.parikh12345@gmail.com and dhruvdd6@gmail.com
+      // The form will naturally submit and show success/error feedback
     }
   </script>
 </body>
