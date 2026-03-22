@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroLife AI — Your Second Brain</title>
+  <link rel="icon" href="assets/app-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/app-icon.png" alt="NeuroLife AI" class="nav-logo" />
+        <span>NeuroLife AI</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="ios.html">iOS</a></li>
+        <li><a href="android.html">Android</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="toggleMenu()">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="badge">AI-Powered Productivity</div>
+        <h1>Your <span class="gradient-text">Second Brain</span></h1>
+        <p class="hero-subtitle">NeuroLife AI remembers everything so you don't have to. Manage tasks, events, groceries, and notes — all through natural language.</p>
+        <div class="hero-cta">
+          <a href="ios.html" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download for iOS
+          </a>
+          <a href="android.html" class="btn btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.341c-.3 0-.544-.244-.544-.544s.244-.544.544-.544.544.244.544.544-.244.544-.544.544m-11.046 0c-.3 0-.544-.244-.544-.544s.244-.544.544-.544.544.244.544.544-.244.544-.544.544m11.4-5.99l1.09-1.89c.06-.1.03-.23-.07-.29-.1-.06-.23-.03-.29.07l-1.1 1.91C16.1 8.6 14.12 8.1 12 8.1s-4.1.5-5.5 1.15L5.4 7.34c-.06-.1-.19-.13-.29-.07-.1.06-.13.19-.07.29l1.09 1.89C3.61 10.64 2 12.77 2 15.25h20c0-2.48-1.61-4.61-4.123-5.899"/></svg>
+            Download for Android
+          </a>
+        </div>
+      </div>
+      <div class="hero-screenshots">
+        <div class="phone-mockup">
+          <img src="assets/screenshot-home.webp" alt="NeuroLife AI Home Screen" class="screenshot" />
+        </div>
+        <div class="phone-mockup phone-mockup-2">
+          <img src="assets/screenshot-notes.webp" alt="NeuroLife AI Notes Screen" class="screenshot" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Everything You Need, In One Place</h2>
+      <p class="section-subtitle">NeuroLife AI combines the power of artificial intelligence with intuitive design to help you stay organized effortlessly.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3>Smart Tasks</h3>
+          <p>Create tasks with natural language. Just say "Remind me to call John tomorrow at 3pm" and it's done.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>Calendar Events</h3>
+          <p>Schedule events effortlessly. AI understands context and automatically sets times, locations, and reminders.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛒</div>
+          <h3>Grocery Lists</h3>
+          <p>Build grocery lists in seconds. Add items by voice or text, organized by category for faster shopping.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Smart Notes</h3>
+          <p>Capture ideas, meeting notes, and voice recordings. AI extracts key points and action items automatically.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Assistant</h3>
+          <p>Chat with your personal AI assistant. It knows your schedule, tasks, and can create items across all modules.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎙️</div>
+          <h3>Voice Input</h3>
+          <p>Speak naturally to create tasks, events, and notes. Hands-free productivity for busy moments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Section -->
+  <section class="screenshots-section">
+    <div class="container">
+      <h2 class="section-title">See It In Action</h2>
+      <p class="section-subtitle">Designed for iOS and Android with a clean, intuitive interface.</p>
+      <div class="screenshots-row">
+        <div class="screenshot-item">
+          <div class="phone-frame">
+            <img src="assets/screenshot-home.webp" alt="Home Dashboard" />
+          </div>
+          <p>Home Dashboard</p>
+        </div>
+        <div class="screenshot-item">
+          <div class="phone-frame">
+            <img src="assets/screenshot-notes.webp" alt="Notes Screen" />
+          </div>
+          <p>Smart Notes</p>
+        </div>
+        <div class="screenshot-item">
+          <div class="phone-frame">
+            <img src="assets/screenshot-modal.webp" alt="Add Note Modal" />
+          </div>
+          <p>Quick Add</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="download-section">
+    <div class="container">
+      <h2>Ready to Supercharge Your Productivity?</h2>
+      <p>Download NeuroLife AI today and experience the future of personal organization.</p>
+      <div class="download-buttons">
+        <a href="ios.html" class="store-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div>
+            <span class="store-label">Download on the</span>
+            <span class="store-name">App Store</span>
+          </div>
+        </a>
+        <a href="android.html" class="store-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.341c-.3 0-.544-.244-.544-.544s.244-.544.544-.544.544.244.544.544-.244.544-.544.544m-11.046 0c-.3 0-.544-.244-.544-.544s.244-.544.544-.544.544.244.544.544-.244.544-.544.544m11.4-5.99l1.09-1.89c.06-.1.03-.23-.07-.29-.1-.06-.23-.03-.29.07l-1.1 1.91C16.1 8.6 14.12 8.1 12 8.1s-4.1.5-5.5 1.15L5.4 7.34c-.06-.1-.19-.13-.29-.07-.1.06-.13.19-.07.29l1.09 1.89C3.61 10.64 2 12.77 2 15.25h20c0-2.48-1.61-4.61-4.123-5.899"/></svg>
+          <div>
+            <span class="store-label">Get it on</span>
+            <span class="store-name">Google Play</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/app-icon.png" alt="NeuroLife AI" class="footer-logo" />
+          <p>NeuroLife AI — Your Second Brain. Built to help you remember everything and stay organized effortlessly.</p>
+        </div>
+        <div class="footer-links">
+          <h4>App</h4>
+          <ul>
+            <li><a href="ios.html">iOS App</a></li>
+            <li><a href="android.html">Android App</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html">Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NeuroLife AI. Developed by Ravi Parikh &amp; Dhruv Desai. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

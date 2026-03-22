@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroLife AI — Contact & Feedback</title>
+  <link rel="icon" href="assets/app-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/app-icon.png" alt="NeuroLife AI" class="nav-logo" />
+        <span>NeuroLife AI</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ios.html">iOS</a></li>
+        <li><a href="android.html">Android</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="toggleMenu()">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Contact Hero -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1>Contact &amp; Feedback</h1>
+      <p>We'd love to hear from you. Whether you have a question, a bug report, or a feature request — reach out to the team behind NeuroLife AI.</p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <h2 class="section-title">Meet the Developers</h2>
+      <p class="section-subtitle">NeuroLife AI is built and maintained by a passionate two-person team dedicated to making productivity effortless.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <span class="avatar-initials">RP</span>
+          </div>
+          <h3>Ravi Parikh</h3>
+          <p class="team-role">Co-Founder &amp; Developer</p>
+          <p class="team-bio">Passionate about building AI-powered tools that make everyday life easier. Focused on mobile app development and user experience design.</p>
+          <a href="mailto:neurolifeai.app@gmail.com" class="team-contact-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Send Email
+          </a>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar team-avatar-2">
+            <span class="avatar-initials">DD</span>
+          </div>
+          <h3>Dhruv Desai</h3>
+          <p class="team-role">Co-Founder &amp; Developer</p>
+          <p class="team-bio">Dedicated to creating seamless, intuitive mobile experiences. Specializes in backend architecture and AI integration for productivity apps.</p>
+          <a href="mailto:neurolifeai.app@gmail.com" class="team-contact-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Send Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>Have a question, found a bug, or want to suggest a feature? We read every message and typically respond within 1–2 business days.</p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-method-icon">📧</div>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:neurolifeai.app@gmail.com">neurolifeai.app@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-method-icon">🐛</div>
+              <div>
+                <h4>Bug Reports</h4>
+                <p>Please include your device model, OS version, and steps to reproduce the issue.</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-method-icon">💡</div>
+              <div>
+                <h4>Feature Requests</h4>
+                <p>We love hearing ideas! Tell us what would make NeuroLife AI even better for you.</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-method-icon">🔒</div>
+              <div>
+                <h4>Privacy Concerns</h4>
+                <p>For data deletion requests or privacy questions, email us with "Privacy Request" in the subject line.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Ravi Parikh" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="platform">Platform</label>
+              <select id="platform" name="platform">
+                <option value="">Select platform...</option>
+                <option value="ios">iOS (iPhone/iPad)</option>
+                <option value="android">Android</option>
+                <option value="both">Both</option>
+                <option value="other">Other / General</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="type">Message Type</label>
+              <select id="type" name="type">
+                <option value="">Select type...</option>
+                <option value="bug">Bug Report</option>
+                <option value="feature">Feature Request</option>
+                <option value="question">General Question</option>
+                <option value="privacy">Privacy / Data Request</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Describe your question, bug, or feedback in detail..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              Send Message
+            </button>
+            <div id="form-success" class="form-success" style="display:none;">
+              ✅ Thank you! Your message has been sent. We'll get back to you within 1–2 business days.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I delete my account and data?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>You can delete your account from the Settings screen in the app. All your data will be permanently removed within 30 days. Alternatively, email us at <a href="mailto:neurolifeai.app@gmail.com">neurolifeai.app@gmail.com</a> with "Data Deletion Request" in the subject line.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is my data stored on your servers?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, your tasks, events, notes, and groceries are stored on our secure servers to enable cross-device sync and AI features. All data is encrypted in transit and at rest. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I opt out of personalized ads?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p><strong>iOS:</strong> Go to Settings &gt; Privacy &amp; Security &gt; Tracking and disable tracking for NeuroLife AI.<br><strong>Android:</strong> Go to Settings &gt; Google &gt; Ads &gt; Opt out of Ads Personalization.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            The AI assistant isn't understanding me correctly. What should I do?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Try rephrasing your request with more specific details (e.g., include dates, times, and names). If the issue persists, please report it using the contact form above with the exact phrase you used — this helps us improve the AI.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is NeuroLife AI free to use?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, NeuroLife AI is free to download and use. The app is supported by advertisements displayed through Google AdMob. We may introduce optional premium features in the future.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/app-icon.png" alt="NeuroLife AI" class="footer-logo" />
+          <p>NeuroLife AI — Your Second Brain.</p>
+        </div>
+        <div class="footer-links">
+          <h4>App</h4>
+          <ul>
+            <li><a href="ios.html">iOS App</a></li>
+            <li><a href="android.html">Android App</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 NeuroLife AI. Developed by Ravi Parikh &amp; Dhruv Desai. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('open');
+    }
+    function handleSubmit(e) {
+      e.preventDefault();
+      // In production, this would POST to a backend endpoint
+      document.getElementById('form-success').style.display = 'block';
+      e.target.reset();
+      setTimeout(() => {
+        document.getElementById('form-success').style.display = 'none';
+      }, 6000);
+    }
+  </script>
+</body>
+</html>
