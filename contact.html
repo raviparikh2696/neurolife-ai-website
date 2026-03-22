@@ -6,6 +6,7 @@
   <title>NeuroLife AI — Contact & Feedback</title>
   <link rel="icon" href="assets/app-icon.png" />
   <link rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
 </head>
 <body>
   <nav class="navbar">
@@ -109,7 +110,7 @@
         </div>
 
         <div class="contact-form-wrapper">
-          <form class="contact-form" action="https://formspree.io/f/xjvvdqbj" method="POST" onsubmit="handleSubmit(event)">
+          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
             <div class="form-group">
               <label for="name">Your Name</label>
               <input type="text" id="name" name="name" placeholder="Ravi Parikh" required />
@@ -143,15 +144,15 @@
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="5" placeholder="Describe your question, bug, or feedback in detail..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary form-submit">
+            <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
               Send Message
             </button>
             <div id="form-status" class="form-success" style="display:none;">
               ✅ Thank you! Your message has been sent to both Ravi and Dhruv. We'll get back to you within 1–2 business days.
             </div>
-            <input type="hidden" name="_next" value="https://neurolife-ai-website.vercel.app/contact.html?success=true" />
-            <input type="hidden" name="_subject" value="NeuroLife AI Contact Form Submission" />
-            <input type="hidden" name="_captcha" value="false" />
+            <div id="form-error" class="form-error" style="display:none;">
+              ❌ Failed to send message. Please try again or email us directly.
+            </div>
           </form>
         </div>
       </div>
@@ -246,17 +247,75 @@
   </footer>
 
   <script>
+    // Initialize EmailJS with public key
+    emailjs.init('lWUXfVvGnbqJfMIYL');
+
     function toggleMenu() {
       document.querySelector('.nav-links').classList.toggle('open');
     }
+
     function toggleFaq(btn) {
       const item = btn.parentElement;
       item.classList.toggle('open');
     }
-    function handleSubmit(e) {
-      // Allow form submission to Formspree
-      // Formspree will send the email to ravi.parikh12345@gmail.com and dhruvdd6@gmail.com
-      // The form will naturally submit and show success/error feedback
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const statusDiv = document.getElementById('form-status');
+      const errorDiv = document.getElementById('form-error');
+      
+      // Hide previous messages
+      statusDiv.style.display = 'none';
+      errorDiv.style.display = 'none';
+      
+      // Disable button to prevent double submission
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      
+      try {
+        // Get form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const platform = document.getElementById('platform').value;
+        const type = document.getElementById('type').value;
+        const message = document.getElementById('message').value;
+        
+        // Send email to both developers
+        const templateParams = {
+          to_email_ravi: 'ravi.parikh12345@gmail.com',
+          to_email_dhruv: 'dhruvdd6@gmail.com',
+          from_name: name,
+          from_email: email,
+          platform: platform,
+          message_type: type,
+          message: message,
+          subject: `NeuroLife AI Contact Form - ${type || 'General'} from ${name}`
+        };
+        
+        // Send email via EmailJS
+        const response = await emailjs.send(
+          'service_neurolife',
+          'template_neurolife',
+          templateParams
+        );
+        
+        if (response.status === 200) {
+          // Success
+          statusDiv.style.display = 'block';
+          document.getElementById('contactForm').reset();
+          submitBtn.textContent = 'Send Message';
+          submitBtn.disabled = false;
+        } else {
+          throw new Error('Failed to send email');
+        }
+      } catch (error) {
+        console.error('Error sending email:', error);
+        errorDiv.style.display = 'block';
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+      }
     }
   </script>
 </body>
