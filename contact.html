@@ -248,90 +248,28 @@
       item.classList.toggle('open');
     }
 
-    async function handleSubmit(e) {
+    function handleSubmit(e) {
       e.preventDefault();
       
-      const submitBtn = document.getElementById('submitBtn');
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const platform = document.getElementById('platform').value;
+      const type = document.getElementById('type').value;
+      const message = document.getElementById('message').value;
+      
+      // Create email body with all details
+      const emailBody = `Name: ${name}%0AEmail: ${email}%0APlatform: ${platform}%0AMessage Type: ${type}%0A%0AMessage:%0A${message}`;
+      
+      // Create mailto link to both developers
+      const mailtoLink = `mailto:ravi.parikh12345@gmail.com,dhruvdd6@gmail.com?subject=NeuroLife AI Contact Form - ${type || 'General'} from ${name}&body=${emailBody}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      // Show success message
       const statusDiv = document.getElementById('form-status');
-      const errorDiv = document.getElementById('form-error');
-      
-      // Hide previous messages
-      statusDiv.style.display = 'none';
-      errorDiv.style.display = 'none';
-      
-      // Disable button to prevent double submission
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      
-      try {
-        // Get form data
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const platform = document.getElementById('platform').value;
-        const type = document.getElementById('type').value;
-        const message = document.getElementById('message').value;
-        
-        // Create email body with all details
-        const emailBody = `
-Name: ${name}
-Email: ${email}
-Platform: ${platform}
-Message Type: ${type}
-
-Message:
-${message}
-        `;
-        
-        // Send to Ravi
-        const raviResponse = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            access_key: '7a5e8f2c-8b9d-4e1f-9c3a-2b1d5e8f7a4c',
-            email: 'ravi.parikh12345@gmail.com',
-            subject: `NeuroLife AI Contact Form - ${type || 'General'} from ${name}`,
-            message: emailBody,
-            from_name: name,
-            from_email: email,
-            redirect: false
-          })
-        });
-        
-        // Send to Dhruv
-        const dhruvResponse = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            access_key: '7a5e8f2c-8b9d-4e1f-9c3a-2b1d5e8f7a4c',
-            email: 'dhruvdd6@gmail.com',
-            subject: `NeuroLife AI Contact Form - ${type || 'General'} from ${name}`,
-            message: emailBody,
-            from_name: name,
-            from_email: email,
-            redirect: false
-          })
-        });
-        
-        if (raviResponse.ok && dhruvResponse.ok) {
-          // Success
-          statusDiv.style.display = 'block';
-          document.getElementById('contactForm').reset();
-          submitBtn.textContent = 'Send Message';
-          submitBtn.disabled = false;
-        } else {
-          throw new Error('Failed to send email');
-        }
-      } catch (error) {
-        console.error('Error sending email:', error);
-        errorDiv.style.display = 'block';
-        errorDiv.textContent = '❌ Error sending message. Please try again or email us directly at ravi.parikh12345@gmail.com or dhruvdd6@gmail.com.';
-        submitBtn.textContent = 'Send Message';
-        submitBtn.disabled = false;
-      }
+      statusDiv.style.display = 'block';
+      document.getElementById('contactForm').reset();
     }
   </script>
 </body>
