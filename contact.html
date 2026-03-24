@@ -6,7 +6,6 @@
   <title>NeuroLife AI — Contact & Feedback</title>
   <link rel="icon" href="assets/app-icon.png" />
   <link rel="stylesheet" href="style.css" />
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
 </head>
 <body>
   <nav class="navbar">
@@ -47,35 +46,28 @@
           <h3>Ravi Parikh</h3>
           <p class="team-role">Co-Founder &amp; Developer</p>
           <p class="team-bio">Passionate about building AI-powered tools that make everyday life easier. Focused on mobile app development and user experience design.</p>
-          <a href="mailto:ravi.parikh12345@gmail.com" class="team-contact-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Send Email
-          </a>
+          <a href="mailto:ravi.parikh12345@gmail.com" class="team-contact-btn">📧 Send Email</a>
         </div>
         <div class="team-card">
-          <div class="team-avatar team-avatar-2">
+          <div class="team-avatar">
             <span class="avatar-initials">DD</span>
           </div>
           <h3>Dhruv Desai</h3>
           <p class="team-role">Co-Founder &amp; Developer</p>
           <p class="team-bio">Dedicated to creating seamless, intuitive mobile experiences. Specializes in backend architecture and AI integration for productivity apps.</p>
-          <a href="mailto:dhruvdd6@gmail.com" class="team-contact-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Send Email
-          </a>
+          <a href="mailto:dhruvdd6@gmail.com" class="team-contact-btn">📧 Send Email</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Form -->
+  <!-- Contact Form Section -->
   <section class="contact-form-section">
     <div class="container">
       <div class="contact-grid">
         <div class="contact-info">
           <h2>Get in Touch</h2>
           <p>Have a question, found a bug, or want to suggest a feature? We read every message and typically respond within 1–2 business days.</p>
-
           <div class="contact-methods">
             <div class="contact-method">
               <div class="contact-method-icon">📧</div>
@@ -148,10 +140,10 @@
               Send Message
             </button>
             <div id="form-status" class="form-success" style="display:none;">
-              ✅ Thank you! Your message has been sent to both Ravi and Dhruv. We'll get back to you within 1–2 business days.
+              ✅ Thank you! Your message has been sent. We'll respond within 1–2 business days.
             </div>
             <div id="form-error" class="form-error" style="display:none;">
-              ❌ Failed to send message. Please try again or email us directly.
+              ❌ Error sending message. Please try again or email us directly.
             </div>
           </form>
         </div>
@@ -170,7 +162,7 @@
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p>You can delete your account from the Settings screen in the app. All your data will be permanently removed within 30 days. Alternatively, email us at <a href="mailto:ravi.parikh12345@gmail.com">ravi.parikh12345@gmail.com</a> or <a href="mailto:dhruvdd6@gmail.com">dhruvdd6@gmail.com</a> with "Data Deletion Request" in the subject line.</p>
+            <p>You can delete your account and all associated data directly from the app: Settings → Account → Delete Account. All your tasks, notes, events, and groceries will be permanently removed. For additional privacy requests, contact us at <a href="mailto:ravi.parikh12345@gmail.com">ravi.parikh12345@gmail.com</a>.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -188,7 +180,7 @@
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p><strong>iOS:</strong> Go to Settings &gt; Privacy &amp; Security &gt; Tracking and disable tracking for NeuroLife AI.<br><strong>Android:</strong> Go to Settings &gt; Google &gt; Ads &gt; Opt out of Ads Personalization.</p>
+            <p>NeuroLife AI displays ads through Google AdMob. To opt out of personalized ads, go to Settings → Privacy → Personalized Ads and toggle it off. You'll still see ads, but they won't be personalized to your interests.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -197,7 +189,7 @@
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p>Try rephrasing your request with more specific details (e.g., include dates, times, and names). If the issue persists, please report it using the contact form above with the exact phrase you used — this helps us improve the AI.</p>
+            <p>Try being more specific with your requests. For example, instead of "remind me later," try "remind me to call mom at 5 PM tomorrow." If the issue persists, please report it using the Contact form above with details about what you tried.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -247,9 +239,6 @@
   </footer>
 
   <script>
-    // Initialize EmailJS with public key
-    emailjs.init('lWUXfVvGnbqJfMIYL');
-
     function toggleMenu() {
       document.querySelector('.nav-links').classList.toggle('open');
     }
@@ -282,26 +271,52 @@
         const type = document.getElementById('type').value;
         const message = document.getElementById('message').value;
         
-        // Send email to both developers
-        const templateParams = {
-          to_email_ravi: 'ravi.parikh12345@gmail.com',
-          to_email_dhruv: 'dhruvdd6@gmail.com',
-          from_name: name,
-          from_email: email,
-          platform: platform,
-          message_type: type,
-          message: message,
-          subject: `NeuroLife AI Contact Form - ${type || 'General'} from ${name}`
-        };
+        // Create email body with all details
+        const emailBody = `
+Name: ${name}
+Email: ${email}
+Platform: ${platform}
+Message Type: ${type}
+
+Message:
+${message}
+        `;
         
-        // Send email via EmailJS
-        const response = await emailjs.send(
-          'service_neurolife',
-          'template_neurolife',
-          templateParams
-        );
+        // Send to Ravi
+        const raviResponse = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: '7a5e8f2c-8b9d-4e1f-9c3a-2b1d5e8f7a4c',
+            email: 'ravi.parikh12345@gmail.com',
+            subject: `NeuroLife AI Contact Form - ${type || 'General'} from ${name}`,
+            message: emailBody,
+            from_name: name,
+            from_email: email,
+            redirect: false
+          })
+        });
         
-        if (response.status === 200) {
+        // Send to Dhruv
+        const dhruvResponse = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: '7a5e8f2c-8b9d-4e1f-9c3a-2b1d5e8f7a4c',
+            email: 'dhruvdd6@gmail.com',
+            subject: `NeuroLife AI Contact Form - ${type || 'General'} from ${name}`,
+            message: emailBody,
+            from_name: name,
+            from_email: email,
+            redirect: false
+          })
+        });
+        
+        if (raviResponse.ok && dhruvResponse.ok) {
           // Success
           statusDiv.style.display = 'block';
           document.getElementById('contactForm').reset();
@@ -313,6 +328,7 @@
       } catch (error) {
         console.error('Error sending email:', error);
         errorDiv.style.display = 'block';
+        errorDiv.textContent = '❌ Error sending message. Please try again or email us directly at ravi.parikh12345@gmail.com or dhruvdd6@gmail.com.';
         submitBtn.textContent = 'Send Message';
         submitBtn.disabled = false;
       }
