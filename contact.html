@@ -46,7 +46,7 @@
           <h3>Ravi Parikh</h3>
           <p class="team-role">Co-Founder &amp; Developer</p>
           <p class="team-bio">Passionate about building AI-powered tools that make everyday life easier. Focused on mobile app development and user experience design.</p>
-          <a href="mailto:ravi.parikh12345@gmail.com" class="team-contact-btn">📧 Send Email</a>
+          <a href="mailto:neurolifeai@gmail.com" class="team-contact-btn">📧 Send Email</a>
         </div>
         <div class="team-card">
           <div class="team-avatar">
@@ -55,7 +55,7 @@
           <h3>Dhruv Desai</h3>
           <p class="team-role">Co-Founder &amp; Developer</p>
           <p class="team-bio">Dedicated to creating seamless, intuitive mobile experiences. Specializes in backend architecture and AI integration for productivity apps.</p>
-          <a href="mailto:dhruvdd6@gmail.com" class="team-contact-btn">📧 Send Email</a>
+          <a href="mailto:neurolifeai@gmail.com" class="team-contact-btn">📧 Send Email</a>
         </div>
       </div>
     </div>
@@ -73,8 +73,7 @@
               <div class="contact-method-icon">📧</div>
               <div>
                 <h4>Email</h4>
-                <a href="mailto:ravi.parikh12345@gmail.com">ravi.parikh12345@gmail.com</a> (Ravi)<br>
-                <a href="mailto:dhruvdd6@gmail.com">dhruvdd6@gmail.com</a> (Dhruv)
+                <a href="mailto:neurolifeai@gmail.com">neurolifeai@gmail.com</a>
               </div>
             </div>
             <div class="contact-method">
@@ -162,7 +161,7 @@
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p>You can delete your account and all associated data directly from the app: Settings → Account → Delete Account. All your tasks, notes, events, and groceries will be permanently removed. For additional privacy requests, contact us at <a href="mailto:ravi.parikh12345@gmail.com">ravi.parikh12345@gmail.com</a>.</p>
+                <p>You can delete your account and all associated data directly from the app: Settings → Account → Delete Account. All your tasks, notes, events, and groceries will be permanently removed. For additional privacy requests, contact us at <a href="mailto:neurolifeai@gmail.com">neurolifeai@gmail.com</a>.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -233,7 +232,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 NeuroLife AI. Developed by Ravi Parikh &amp; Dhruv Desai. All rights reserved.</p>
+        <p>&copy; 2025 NeuroLife AI. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -248,28 +247,47 @@
       item.classList.toggle('open');
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
       e.preventDefault();
-      
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const platform = document.getElementById('platform').value;
       const type = document.getElementById('type').value;
       const message = document.getElementById('message').value;
-      
-      // Create email body with all details
-      const emailBody = `Name: ${name}%0AEmail: ${email}%0APlatform: ${platform}%0AMessage Type: ${type}%0A%0AMessage:%0A${message}`;
-      
-      // Create mailto link to both developers
-      const mailtoLink = `mailto:ravi.parikh12345@gmail.com,dhruvdd6@gmail.com?subject=NeuroLife AI Contact Form - ${type || 'General'} from ${name}&body=${emailBody}`;
-      
-      // Open email client
-      window.location.href = mailtoLink;
-      
-      // Show success message
+      const submitBtn = document.getElementById('submitBtn');
       const statusDiv = document.getElementById('form-status');
-      statusDiv.style.display = 'block';
-      document.getElementById('contactForm').reset();
+      const errorDiv = document.getElementById('form-error');
+      
+      statusDiv.style.display = 'none';
+      errorDiv.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      
+      try {
+        const response = await fetch('https://3000-imsk6r9ipg03peyydk07h-bb6238c7.sg1.manus.computer/api/trpc/contact.submitForm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            jsonrpc: '2.0',
+            method: 'contact.submitForm',
+            params: { input: { name, email, platform: platform || '', type: type || '', message } },
+            id: 1,
+          }),
+        });
+        const data = await response.json();
+        if (data.result?.data?.success) {
+          statusDiv.style.display = 'block';
+          document.getElementById('contactForm').reset();
+        } else {
+          errorDiv.style.display = 'block';
+        }
+      } catch (err) {
+        console.error('Error:', err);
+        errorDiv.style.display = 'block';
+      } finally {
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+      }
     }
   </script>
 </body>
