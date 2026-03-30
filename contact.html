@@ -264,18 +264,19 @@
       submitBtn.textContent = 'Sending...';
       
       try {
-        const response = await fetch('https://3000-imsk6r9ipg03peyydk07h-bb6238c7.sg1.manus.computer/api/trpc/contact.submitForm', {
+        const response = await fetch('https://3000-imsk6r9ipg03peyydk07h-bb6238c7.sg1.manus.computer/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            jsonrpc: '2.0',
-            method: 'contact.submitForm',
-            params: { input: { name, email, platform: platform || '', type: type || '', message } },
-            id: 1,
+            name,
+            email,
+            platform: platform || '',
+            type: type || '',
+            message
           }),
         });
         const data = await response.json();
-        if (data.result?.data?.success) {
+        if (data.success) {
           statusDiv.style.display = 'block';
           document.getElementById('contactForm').reset();
         } else {
